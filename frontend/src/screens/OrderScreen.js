@@ -46,6 +46,7 @@ const OrderScreen = ({ match }) => {
     };
 
     if (!order || successPay) {
+      // to prevent an infinite loop
       dispatch({ type: ORDER_PAY_RESET })
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
