@@ -24,14 +24,13 @@ const OrderScreen = ({ match }) => {
       order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     );
   }
-  // check for the order and also make sure that the order ID matches the ID in the URL. 
+  // check for the order and also make sure that the order ID matches the ID in the URL.
   // If it does not, then dispatch getOrderDetails() to fetch the most recent order
   useEffect(() => {
     if (!order || order._id !== orderId) {
       dispatch(getOrderDetails(orderId));
     }
-  // eslint-disable-next-line
-  }, [order, orderId]);
+  }, [dispatch, orderId, order]);
 
   return loading ? (
     <Loader />
