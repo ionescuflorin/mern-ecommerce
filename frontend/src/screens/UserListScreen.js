@@ -25,7 +25,7 @@ const UserListScreen = ({ history }) => {
       history.push('/login');
     }
     dispatch(listUsers());
-  }, [dispatch, history, sccessDelete]);
+  }, [dispatch, history, sccessDelete, userInfo]);
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure?')) {
