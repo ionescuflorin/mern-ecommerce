@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const orderSchema = mongoose.Schema(
   {
-    // user that buy the product
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -13,7 +12,7 @@ const orderSchema = mongoose.Schema(
         name: { type: String, required: true },
         qty: { type: Number, required: true },
         image: { type: String, required: true },
-        price: { type: String, required: true },
+        price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -31,7 +30,6 @@ const orderSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    // here ew'll come data after making a PayPal payment
     paymentResult: {
       id: { type: String },
       status: { type: String },
@@ -67,14 +65,14 @@ const orderSchema = mongoose.Schema(
       default: false,
     },
     deliveredAt: {
-        type: Date,
-      },
+      type: Date,
+    },
   },
   {
     timestamps: true,
   }
-);
+)
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = mongoose.model('Order', orderSchema)
 
-export default Order;
+export default Order
